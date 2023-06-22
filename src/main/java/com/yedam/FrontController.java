@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.board.control.BoardAddControl;
 import com.yedam.board.control.BoardFormControl;
 import com.yedam.board.control.BoardListControl;
+import com.yedam.board.control.BoardSearchControl;
 import com.yedam.com.Controller;
 
 public class FrontController extends HttpServlet {
@@ -32,14 +33,14 @@ public class FrontController extends HttpServlet {
 		menu.put("/boardList.do", new BoardListControl());
 		menu.put("/boardForm.do", new BoardFormControl());
 		menu.put("/addBoard.do", new BoardAddControl());
-		
+		menu.put("/getBoard.do", new BoardSearchControl());
 		menu.put("/member.do", new MemberControl());
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding(enc);
-		
+		 
 		String uri = req.getRequestURI();
 		String cpath = req.getContextPath(); //application 이름.
 		String path = uri.substring(cpath.length());

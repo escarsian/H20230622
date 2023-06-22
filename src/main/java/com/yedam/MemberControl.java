@@ -11,5 +11,5 @@ public class MemberControl implements Controller{
 	public void exec(HttpServletRequest req, HttpServletResponse resp) {
 		System.out.println("member 컨트롤");
 	}
-
+ 
 }

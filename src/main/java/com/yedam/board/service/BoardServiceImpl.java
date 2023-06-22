@@ -13,7 +13,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public boolean addBoard(BoardVO vo) {
 		return dao.insertBoard(vo);
-	}
+	} 
 
 	@Override
 	public BoardVO getBoard(long brdNo) {

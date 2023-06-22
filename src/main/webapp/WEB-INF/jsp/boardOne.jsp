@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="boardList.do">게시판 목록이동</a>
+ 
 </body>
-</html> 
+</html>

@@ -18,5 +18,5 @@ public class MainControl implements Controller{
 		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/jsp/main.jsp");
 		rd.forward(req, resp);
 	}
-	
+	 
 }

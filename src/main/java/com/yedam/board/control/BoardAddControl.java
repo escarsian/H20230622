@@ -18,7 +18,7 @@ public class BoardAddControl implements Controller {
 		String wr = req.getParameter("writer");
 		String tl = req.getParameter("title");
 		String ctn = req.getParameter("content");
-		
+		 
 		if(wr ==null || tl==null || ctn==null) {
 			req.setAttribute("errorMsg", "필수값을 입력하세요!!");
 			req.getRequestDispatcher("WEB-INF/jsp/boardForm.jsp").forward(req, resp);

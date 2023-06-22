@@ -1,9 +1,7 @@
 package com.yedam.board.control;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,18 +11,18 @@ import com.yedam.board.service.BoardServiceImpl;
 import com.yedam.board.vo.BoardVO;
 import com.yedam.com.Controller;
 
-public class BoardListControl implements Controller{
+public class BoardSearchControl implements Controller {
 
-	@Override 
+	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
+		String no = req.getParameter("bno");
 		BoardService service = new BoardServiceImpl();
-		List<BoardVO> list = service.list();
+		BoardVO vo = service.getBoard(Long.parseLong(no));
 		
-		req.setAttribute("list", list);
+		req.setAttribute("board", vo);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/jsp/boardList.jsp");
-		rd.forward(req, resp);
+		req.getRequestDispatcher("WEB-INF/jsp/boardOne.jsp").forward(req, resp);
 	}
-
+ 
 }

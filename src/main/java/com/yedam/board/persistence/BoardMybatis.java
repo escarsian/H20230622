@@ -21,7 +21,7 @@ public class BoardMybatis implements BoardService {
 	public boolean editBoard(BoardVO vo) {
 		return false;
 	}
-
+ 
 	@Override
 	public boolean delBoard(long brdNo) {
 		return false;

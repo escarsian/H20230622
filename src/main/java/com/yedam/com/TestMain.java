@@ -22,6 +22,6 @@ public class TestMain {
 		List<BoardVO> list = dao.boardList();
 		for (BoardVO vo : list) {
 			System.out.println(vo.toString());
-		}
+		} 
 	}
 }

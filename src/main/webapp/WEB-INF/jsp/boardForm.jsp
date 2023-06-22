@@ -28,7 +28,7 @@
 				<th>제목</th>
 				<td><input type="text" name="title"></td>
 			</tr>
-			<tr>
+			<tr> 
 				<th>작성자</th>
 				<td><input type="text" name="writer"></td>
 			</tr>

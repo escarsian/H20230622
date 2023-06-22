@@ -15,4 +15,4 @@ public class BoardFormControl implements Controller{
 		req.getRequestDispatcher("WEB-INF/jsp/boardForm.jsp").forward(req, resp);
 	}
 
-}
+} 

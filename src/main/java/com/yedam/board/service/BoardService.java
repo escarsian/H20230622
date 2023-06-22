@@ -11,3 +11,4 @@ public interface BoardService {
 	public boolean delBoard(long brdNo);
 	public List<BoardVO> list();
 }
+ 

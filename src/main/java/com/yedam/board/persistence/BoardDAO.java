@@ -52,7 +52,7 @@ public class BoardDAO {
 				vo.setBrdWriter(rs.getString("brd_writer"));
 				list.add(vo);
 			}
-		} catch (SQLException e) {
+		} catch (SQLException e) { 
 			e.printStackTrace();
 		} finally {
 			close();
