@@ -8,21 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.board.service.BoardService;
 import com.yedam.board.service.BoardServiceMybatis;
-import com.yedam.board.vo.BoardVO;
 import com.yedam.com.Controller;
 
-public class BoardSearchControl implements Controller {
+public class BoardRemoveControl implements Controller {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		String no = req.getParameter("bno");
+		
 		BoardService service = new BoardServiceMybatis();
-		BoardVO vo = service.getBoard(Long.parseLong(no));
+		service.delBoard(Long.parseLong(no));
 		
-		req.setAttribute("board", vo);
-		
-		req.getRequestDispatcher("WEB-INF/jsp/boardOne.jsp").forward(req, resp);
+		resp.sendRedirect("boardList.do");
 	}
- 
+
 }

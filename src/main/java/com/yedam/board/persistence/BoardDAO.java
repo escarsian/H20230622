@@ -59,6 +59,60 @@ public class BoardDAO {
 		}
 		return list;
 	}
+	//페이지
+	public List<BoardVO> boardListPaging(int page) {
+		List<BoardVO> list = new ArrayList<>();
+		conn = DAO.getConnect();
+		sql = "select *\r\n"
+				+ "from(\r\n"
+				+ "     select rownum rn, a.*\r\n" //
+				+ "     from(\r\n" //
+				+ "          select *\r\n" //
+				+ "          from tbl_board order by brd_no desc\r\n" //
+				+ "          ) a\r\n" //
+				+ "     )b\r\n" //
+				+ "where b.rn > (? -1) * 10\r\n" //
+				+ "and b.rn <= ? * 10";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, page);
+			psmt.setInt(2, page);
+			
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				BoardVO vo = new BoardVO();
+				vo.setBrdContent(rs.getString("brd_content"));
+				vo.setBrdTitle(rs.getString("brd_title"));
+				vo.setBrdNo(rs.getLong("brd_no"));
+				vo.setCreateDate(rs.getDate("create_date"));
+				vo.setBrdWriter(rs.getString("brd_writer"));
+				list.add(vo);
+			}
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+	
+	//전체 건수 계산.
+	public int getTotalCnt() {
+		conn = DAO.getConnect();
+		sql = "select count(1) from tbl_board";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			rs.next();
+			int cnt = rs.getInt(1);
+			return cnt;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return 0;
+	}
 
 	// 등록
 	public boolean insertBoard(BoardVO vo) {
@@ -133,9 +187,10 @@ public class BoardDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setLong(1, brdno);
 			rs = psmt.executeQuery();
+			
 			if (rs.next()) {
 				BoardVO vo = new BoardVO();
-				vo.setBrdNo(rs.getLong("brd_no"));
+				vo.setBrdNo(rs.getInt("brd_no"));
 				vo.setBrdContent(rs.getString("brd_content"));
 				vo.setBrdTitle(rs.getString("brd_title"));
 				vo.setBrdWriter(rs.getString("brd_writer"));
@@ -169,4 +224,6 @@ public class BoardDAO {
 			close();
 		}
 	}
+	
+	
 }

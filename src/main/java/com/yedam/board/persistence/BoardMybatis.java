@@ -28,8 +28,13 @@ public class BoardMybatis implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> list() {
+	public List<BoardVO> list(int page) {
 		return null;
+	}
+
+	@Override
+	public int totalCnt() {
+		return 0;
 	}
 
 }

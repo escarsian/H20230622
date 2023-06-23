@@ -9,6 +9,7 @@ public interface BoardService {
 	public BoardVO getBoard(long brdNo);
 	public boolean editBoard(BoardVO vo);
 	public boolean delBoard(long brdNo);
-	public List<BoardVO> list();
+	public List<BoardVO> list(int page);
+	public int totalCnt();
 }
  

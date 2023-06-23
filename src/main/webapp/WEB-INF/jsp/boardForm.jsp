@@ -1,14 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-<meta charset="UTF-8">
-<title>boardForm.jsp</title>
-</head>
-
-<body>
+	<jsp:include page="header.jsp"></jsp:include>
 	<%
 	String msg = (String) request.getAttribute("errorMsg");
 	%>
@@ -23,7 +15,7 @@
 	%>
 	<h3>게시글 등록</h3>
 	<form action="addBoard.do" method="post">
-		<table border="1">
+		<table class="table">
 			<tr>
 				<th>제목</th>
 				<td><input type="text" name="title"></td>
@@ -42,6 +34,5 @@
 			</tr>
 		</table>
 	</form>
-</body>
-
-</html>
+	<a href="boardList.do">목록으로 이동.</a>
+	<jsp:include page="footer.jsp"></jsp:include>
