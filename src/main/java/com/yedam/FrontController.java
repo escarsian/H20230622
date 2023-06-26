@@ -44,14 +44,14 @@ public class FrontController extends HttpServlet {
 		menu.put("/boardForm.do", new BoardFormControl());
 		menu.put("/addBoard.do", new BoardAddControl());
 		menu.put("/getBoard.do", new BoardSearchControl());
-		menu.put("/modifyFrom.do", new BoardModifyFormControl()); 
+		menu.put("/modifyForm.do", new BoardModifyFormControl()); 
 		menu.put("/boardModify.do", new BoardModifyControl());
 		menu.put("/boardRemove.do", new BoardRemoveControl());
 		
 		//회원관련
 		menu.put("/memberLoginForm.do", new LoginFormControl()); //로그인화면
 		menu.put("/memberLogin.do", new LoginControl()); //로그인처리.
-		menu.put("/memberLogout.do", new LogoutControl()); // 
+		menu.put("/memberLogout.do", new LogoutControl()); // 로그아웃 처리
 		menu.put("/memberJoinForm.do", new MemberJoinForm());  
 		menu.put("/addMember.do",new AddMemberControl());
 		menu.put("/memberInfo.do", new MemberInfoControl());

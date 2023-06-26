@@ -55,6 +55,7 @@
 				<td>${vo.clickCnt }</td>
 			</tr>
 			</c:forEach>
+			
 		</tbody>
 	</table>
 	<br>
@@ -65,6 +66,7 @@
 			</c:if>
 			
 			<c:forEach begin = "${page.startPage }" end ="${page.endPage }" var="i">
+			
 			<c:choose>
 			<c:when test="${i == curPage }">
 			<a href="boardList.do?page=${i }" class="active"> <c:out value="${i }" /></a>
@@ -73,13 +75,15 @@
 			<a href="boardList.do?page=${i }"> <c:out value="${i }" /></a>
 			</c:otherwise>
 			</c:choose>
+			
 			</c:forEach>
 			
 			<c:if test="${page.next }">
 			<a href="boardList.do?page=${page.endPage + 1}"> next</a>
 			</c:if>
 			<br>
-		</div>
-	</div>
+	<div class = "center">
+	<div class="pagiantion">
+	<br>
 	<a href="boardForm.do">등록화면으로</a>
 <jsp:include page="footer.jsp"></jsp:include>

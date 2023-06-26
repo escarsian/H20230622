@@ -21,7 +21,7 @@ public class MemberInfoControl implements Controller {
 		//"loginId"
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("loginId");
-		String name = (String) session.getAttribute("uname");
+//		String name = (String) session.getAttribute("loginName");
 		//service(getMember)에 등록 /mapper(select)에도 등록 / jsp(화면)에도 등록.
 		MemberVO member = new MemberVO();
 //		member.setUserId("user2222");
@@ -31,13 +31,13 @@ public class MemberInfoControl implements Controller {
 //		member.setUserAddr("대구 중구");
 //		member.setUserPhone("010-1111-1111");
 		member.setUserId(id);
-		member.setUserName(name);
+//		member.setUserName(name);
 //		member.setUserBirth();
 		
 		MemberService service = new MemberServiceImpl();
-		service.select(id);
+		MemberVO vo = service.select(id);
 		
-		req.setAttribute("info", member);
+		req.setAttribute("info", vo );
 		
 		req.getRequestDispatcher("WEB-INF/jsp/member/memberInfo.jsp").forward(req, resp);
 	}

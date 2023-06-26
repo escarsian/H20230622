@@ -38,6 +38,7 @@
 		<c:when test="${score>20 }">
 			<p>값이 참입니다.</p>
 		</c:when>
+		
 		<c:otherwise>
 			<p>값이 거짓입니다.</p>
 		</c:otherwise>

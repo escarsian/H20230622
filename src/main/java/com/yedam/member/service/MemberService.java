@@ -10,5 +10,5 @@ public interface MemberService {
 	public MemberVO getMemeber(String id);
 	public MemberVO select(String id);
 	public MemberVO Modify(String id, String phone, String addr);
-	public MemberVO update(MemberVO member);
+	public boolean update(MemberVO member);
 }

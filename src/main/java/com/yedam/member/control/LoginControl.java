@@ -26,9 +26,8 @@ public class LoginControl implements Controller {
 		MemberVO member = service.login(id, pw);
 		
 		if(member != null) { //로그인 성공.
-			session.setAttribute("loginID", member.getUserId());
+			session.setAttribute("loginId", member.getUserId());
 			session.setAttribute("loginName", member.getUserName());
-			
 			resp.sendRedirect("boardList.do");//게시판 화면
 		}else { //로그인 실패.
 			resp.sendRedirect("memberLoginForm.do");//로그인 화면

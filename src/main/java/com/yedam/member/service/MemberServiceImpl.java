@@ -15,6 +15,7 @@ public class MemberServiceImpl implements MemberService {
 		MemberVO vo = new MemberVO();
 		vo.setUserId(id);
 		vo.setUserPw(pw);
+		System.out.println(vo);
 		return mapper.login(vo);
 	}
 
@@ -43,17 +44,17 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO Modify(String id, String phone, String addr) {
 		// TODO Auto-generated method stub
-		MemberVO vo = new MemberVO();
-		vo.setUserId(id);
-		vo.setUserPhone(phone);
-		vo.setUserAddr(addr);
-		return mapper.update(vo);
+		MemberVO member = new MemberVO();
+		member.setUserId(id);
+		member.setUserPhone(phone);
+		member.setUserAddr(addr);
+		return mapper.modify(member);
 	}
 
 
 	@Override
-	public MemberVO update(MemberVO member) {
+	public boolean update(MemberVO member) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.update(member) == 1;
 	}
 }
